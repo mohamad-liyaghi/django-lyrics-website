@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .forms import  LyricsForm
+from extensions.lyrics import find_lyrics
 # Create your views here.
 def lyrics(request):
-    return render(request,"lyrics/home.html",{})
+    if request.method == "POST":
+        song_name =  request.POST.get("song_name",False)
+        artist_name =  request.POST.get("artist_name",False)
+    else:
+        form = LyricsForm()
+    return render(request,"lyrics/home.html",{'form':LyricsForm})

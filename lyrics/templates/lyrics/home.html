@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,10 @@
     <title>Neutron | Home </title>
 </head>
 <body>
- Welcome to Neutron Lyrics project
+    <form method="post">
+        {%csrf_token%}
+        {{form|crispy}}
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
 </body>
 </html>
