@@ -1,15 +1,40 @@
 {% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Neutron | Home </title>
-</head>
-<body>
-    <form method="post">
-        {%csrf_token%}
-        {{form|crispy}}
-        <input type="submit" value="Submit" class="btn btn-secondary">
-    </form>
-</body>
-</html>
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'css/styles.css' %}">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form id="msform" method="post">
+                {%csrf_token%}
+                <ul id="progressbar">
+                    <a href="{%url 'home'%}">
+                        <li class="active">Songs Name</li>
+                        <li>Artists Name</li>
+                        <li>Lyrics!</li>
+                    </a>
+                </ul>
+                <fieldset>
+                    <h2 class="fs-title">Enter The Songs Name</h2>
+                    <h3 class="fs-subtitle">Tell me the song you are looking for (only name)</h3>
+                    {{form.song_name}}
+                    <input type="button" name="next" class="next action-button" value="Next"/>
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title">Enter The Artists Name</h2>
+                    <h3 class="fs-subtitle">Tell us the Artist  you are looking for </h3>
+                    {{form.artist_name}}
+                    <input type="submit" name="next" class="next action-button" value="Submit"/>
+                    <input type="button" name="next" class="previous action-button" value="previous"/>
+                </fieldset>
+                <fieldset>
+                    Please Wait !!
+                </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="{%static 'js/fields.js' %}"></script>
+
+
+

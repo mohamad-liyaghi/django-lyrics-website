@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css' %}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+            function copy(element_id){
+          var aux = document.createElement("div");
+          aux.setAttribute("contentEditable", true);
+          aux.innerHTML = document.getElementById(element_id).innerHTML;
+          aux.setAttribute("onfocus", "document.execCommand('selectAll',false,null)");
+          document.body.appendChild(aux);
+          aux.focus();
+          document.execCommand("copy");
+          document.body.removeChild(aux);
+}
+    </script>
+</head>
+<body>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form id="msform" method="post">
+                {%csrf_token%}
+                <ul id="progressbar">
+                    <a href="{%url 'home' %}">
+                        <li class="active">Songs Name</li>
+                        <li class="active">Artists Name</li>
+                        <li class="active">Lyrics!</li>
+                    </a>
+                </ul>
+                <fieldset>
+                    <hr>
+                    <br>
+                    <p id="demo">{{lyrics|linebreaks}}</p>
+                    <br>
+                    <hr>
+                    <br>
+                    <input class="next action-button" value="Copy" onclick="copy('demo')"/> <br>
+                     <small><a href="{%url 'home'%}">Home </a></small>
+                </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>
