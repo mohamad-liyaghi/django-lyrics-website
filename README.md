@@ -10,6 +10,7 @@ Before using , you'll need to sign up for an account that authorizes access to <
 ```
 $ pip install django
 $ pip install djangorestframework
+$ pip install django-crispy-forms
 $ pip install lyricsgenius
 ```
 ## Usage
