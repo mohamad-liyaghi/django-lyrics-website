@@ -15,7 +15,7 @@ $ pip install lyricsgenius
 ```
 ## Usage
 ```
-$ git clone https://github.com/Ml06py/neutron-lyrics.git
+$ git clone https://github.com/Ml06py/neutron-lyrics/
 $ python manage.py migrate
 $ python manage.py runserver
 ```
