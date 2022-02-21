@@ -19,7 +19,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include("lyrics.urls"))
+    path('',include("lyrics.urls")),
+    path('api/',include("api.urls")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
